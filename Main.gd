@@ -5,7 +5,7 @@ var score
 
 
 func _ready():
-	new_game()
+	pass
 
 
 func game_over():
