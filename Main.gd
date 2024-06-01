@@ -4,14 +4,12 @@ extends Node
 var score
 
 
-func _ready():
-	pass
-
-
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$Music.stop()
+	$DeathSound.play()
 
 
 func new_game():
@@ -21,6 +19,7 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
+	$Music.play()
 
 
 func _on_start_timer_timeout():
